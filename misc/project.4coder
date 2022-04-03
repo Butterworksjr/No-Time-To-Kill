@@ -1,0 +1,44 @@
+version(1);
+
+project_name = "RPG";
+
+patterns = {
+	"*.c",
+	"*.cpp",
+	"*.h",
+	"*.bat",
+	"*.inl",
+	"*.4coder",
+};
+
+blacklist_patterns = {
+	".*",
+};
+
+load_paths = {
+	{ { {"..\.", .relative = true, .recursive = true, } }, .os = "win" },
+};
+
+command_list = {
+	{ .name = "build",
+	  .out = "*compile*",
+	  .footer_panel = true,
+	  .save_dirty_files = true,
+	  .cursor_at_end = false,
+	  .cmd = {
+	  	{ "build.bat", .os = "win" },
+	  },
+	},
+	{ .name = "run",
+	  .out = "*compile*",
+	  .footer_panel = true,
+	  .save_dirty_files = false,
+	  .cursor_at_end = true,
+	  .cmd = {
+	  	{ "run.bat", .os = "win" },
+	  },
+	},
+};
+
+fkey_command[1] = "build";
+fkey_command[2] = "run";
